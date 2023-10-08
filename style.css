@@ -176,45 +176,78 @@ h2{
 hr{
     color: #d5d5d5;
 }
-.skill-description{
-    color: #c8c5c5;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: initial;
+skill-container {
+    margin-bottom: 20px;
 }
-.skill-container {
-    color: #c8c5c5;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 15px;
+.skill{
+    color: #e5e5e5;
 }
 
 .skill-name {
     font-weight: bold;
+    display: inline-flex;
+    color: #fff;
 }
 
 .skill-percent {
     font-weight: bold;
+    display: inline-flex;
+    width: 100%;
+    text-align: right;
+    float: right;
+}
+.skill-container{
+    display: inline-block;
+    flex-direction: column;
 }
 
 .progress {
-    width: 100%;
     height: 10px;
-   
+    margin-top: 10px;
+    width: 100%;
 }
 
+.contact-detail{
+    color: #c8c5c5;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: initial;
+}
 
+.about{
+    color: #c8c5c5;
+}
+.section-title{
+    padding-left: 20px;
+}
+.col-lg-6 i{
+    
+    pedding-left : 20px;
+}
+.hero{
+    width: 50%;
+    height: 50vh;
+    display: inline-block;
+    align-items: center;
+    justify-content: center;
+}
+form{
+    width: 90%;
+    max-width: 600px;
+    color: #fff;
+}
+.input-group{
+    margin-bottom: 30px;
+}
+input, textarea{
+    width: 100%;
+    padding: 10px;
+    outline: 0;
+    border: 1px solid #fff;
+    color: #fff;
+    background: transparent;
+    font-size: 15px;
 
-
-
-
-
-
-
-
-
-
-
+}
 
 
 
