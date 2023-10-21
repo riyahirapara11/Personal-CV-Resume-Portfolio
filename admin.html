@@ -3,51 +3,417 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Riya</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <title>Modern Admin Dashboard</title>
     <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet"
+        href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 
 <body>
+    <input type="checkbox" id="menu-toggle">
+    <div class="sidebar">
+        <div class="side-header">
+            <h3>D<span>ashboard</span></h3>
+        </div>
 
-    <div class="container">
-        <nav>
-            <ul>
-                <li><a href="#" class="logo">
-                    <img src="https://icon-library.com/images/dashboard-icon/dashboard-icon-12.jpg" alt="">
-                    <span class="nav-item" id="DashBoard"><h2>DashBoard</h2></span>
-                </a></li>
-                <li><a href="#">
-                    <i class="fas fa-home"></i>
-                    <span class="nav-item"><h3>Home</h3></span>
-                </a></li>
-                <li><a href="#">
-                    <i class="fas fa-user"></i>
-                    <span class="nav-item"><h3>Profile</h3></span>
-                </a></li>
-                <li><a href="#">
-                    <i class=" fas fa-solid fa-graduation-cap"></i>
-                    <span class="nav-item"><h3>Education</h3></span>
-                </a></li>
-                <li><a href="#">
-                    <i class=" fas fa fa-bar-chart" aria-hidden="true"></i>
-                    <span class="nav-item"><h3>Skills</h3></span>
-                </a></li>
-                <li><a href="#">
-                    <i class="fas fa-project-diagram"></i>
-                    <span class="nav-item"><h3>Projects</h3></span>
-                </a></li>
-        
-            </ul>
-        </nav>
+        <div class="side-content">
+            <div class="profile">
+                <div class="profile-img bg-img" style="background-image: url(img/girl\ profile\ pic.jpeg)"></div>
+                <h4>Riya Hirapara</h4>
+            </div>
 
-        <section class="main">
+            <div class="side-menu">
+                <ul>
+                    <li>
+                        <a href="">
+                            <span class="las la-home"></span>
+                            <small>Home</small>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#edu" class="active">
+                            <span class="las la-user-alt"></span>
+                            <small>Education</small>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#skill" class="active">
+                            <span class="https://icons8.com/icon/0UD20ulKcDXS/persuasion-skills"></span>
+                            <small>Skills</small>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#project">
+                            <span class="las la-clipboard-list"></span>
+                            <small>Projects</small>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
-        </section>
+    <div class="main-content">
+
+        <header>
+            <div class="header-content">
+                <label for="menu-toggle">
+                    <span class="las la-bars"></span>
+                </label>
+
+                <div class="header-menu">
+                    <label for="">
+                        <span class="las la-search"></span>
+                    </label>
+
+                    <div class="notify-icon">
+                        <span class="las la-envelope"></span>
+                        <span class="notify">4</span>
+                    </div>
+
+                    <div class="notify-icon">
+                        <span class="las la-bell"></span>
+                        <span class="notify">3</span>
+                    </div>
+
+                    <div class="user">
+                        <div class="bg-img" style="background-image: url(img/1.jpeg)"></div>
+
+                        <span class="las la-power-off"></span>
+                        <span>Logout</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+
+        <main>
+            <section id="edu">
+                <div class="page-header">
+                    <h2>Education</h2>
+                    <div class="skill-btn">
+                        <button class="btn btn-success" type="button" onclick="openPopup('add')">Add new</button>
+                    </div>
+                </div>
+                <div class="records table-responsive">
+                    <div>
+                        <table width="100%">
+                            <thead>
+                                <tr>
+                                    <th> Institute Name</th>
+                                    <th>Degree</th>
+                                    <th> Year Duration</th>
+                                    <th colspan="4">action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr data-id="1">
+                                    <td>Marwadi University</td>
+                                    <td>Persuing</td>
+                                    <td>2021-2025</td>
+                                    <td>
+                                        <div>
+                                            <button class="btn btn-outline-success btn-sm edit-button" type="button"
+                                                onclick="openPopup('edit', 1)">edit</button>
+                                            <button class="btn btn-outline-danger btn-sm" type="button"
+                                                onclick="deleteRow(1)">Delete</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr data-id="2">
+                                    <td>Dream International School</td>
+                                    <td>HSC</td>
+                                    <td>2021</td>
+                                    <td>
+                                        <div>
+                                            <button class="btn btn-outline-success btn-sm edit-button" type="button"
+                                                onclick="openPopup('edit', 2)">edit</button>
+                                            <button class="btn btn-outline-danger btn-sm" type="button"
+                                                onclick="deleteRow(2)">Delete</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr data-id="3">
+                                    <td>Unique School</td>
+                                    <td>SSC </td>
+                                    <td> 2019-2021</td>
+                                    <td>
+                                        <div>
+                                            <button class="btn btn-outline-success btn-sm edit-button" type="button"
+                                                onclick="openPopup('edit', 3)">edit</button>
+                                            <button class="btn btn-outline-danger btn-sm" type="button"
+                                                onclick="deleteRow(3)">Delete</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="popup-container" id="eduPopup">
+                    <div class="popup">
+                        <h2>Edit Education</h2>
+                        <form>
+                            <div class="mb-3 row">
+                                <label for="instituteName" class="col-sm-2 col-form-label">Institute Name</label>
+                                <div class="col-sm-10" id="input">
+                                    <input type="text" class="form-control" id="instituteName">
+                                </div>
+                            </div>
+
+                            <div class="mb-3 row">
+                                <label for="degree" class="col-sm-2 col-form-label"> Degree</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="degree">
+                                </div>
+                            </div>
+
+                            <div class="mb-3 row">
+                                <label for="yearDuration" class="col-sm-2 col-form-label">Year Duration</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="yearDuration">
+                                </div>
+                            </div>
+                            <button type="submit" id="save-btn">Save</button>
+                            <button type="button" id="cancel-btn" onclick="closePopup()">Cancel</button>
+                        </form>
+                    </div>
+                </div>
+
+                <script>
+                    // JavaScript to show and hide the popup
+                    function openPopup(action, rowId) {
+                        const popup = document.getElementById('eduPopup');
+                        if (action === 'add') {
+                            // Handle the "Add" action here
+                            // Clear and set the popup fields accordingly for adding
+                        } else if (action === 'edit') {
+                            // Handle the "Edit" action here
+                            // Fetch data from the selected row using rowId
+                            // Populate the popup fields with the data
+                        }
+                        popup.style.display = 'block';
+                    }
+
+                    function closePopup() {
+                        document.getElementById('eduPopup').style.display = 'none';
+                    }
+
+                    function deleteRow(rowId) {
+                        // Handle the "Delete" action here
+                        // Remove the row from the table
+                    }
+
+                    // Attach the openPopup function to the "Edit" buttons
+                    const editButtons = document.querySelectorAll('.edit-button');
+                    editButtons.forEach((button) => {
+                        button.addEventListener('click', openPopup);
+                    });
+                </script>
+
+
+            </section>
+
+            <!------------------------- skills-------------------------------------- -->
+            <section id="skill">
+                <div class="skill-container">
+                    <div class="page-header">
+                        <h2>Skills</h2>
+                        <div class="skill-btn">
+                            <button class="btn btn-success" type="button" onclick="openSkillPopup('add')">Add new
+                                skill</button>
+                        </div>
+                    </div>
+                    <div class="page-content">
+                            <table class="skills-table">
+                                <thead>
+                                    <tr id="title">
+                                        <th>Skill Name</th>
+                                        <th>Skill Level</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr data-index="0">
+                                        <td>HTML/CSS</td>
+                                        <td>
+                                            <div class="progress">
+                                                <div class="progress-bar bg-success" role="progressbar" style="width: 60%;" aria-valuenow="60"
+                                                    aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                        </td>
+                                        <td class="action-buttons">
+                                            <button class="btn btn-outline-success btn-sm edit-button" onclick="openSkillPopup('edit', 0)">Edit</button>
+                                            <button class="btn btn-outline-danger btn-sm" onclick="deleteSkill(0)">Delete</button>
+                                        </td>
+                                    </tr>
+                                    <tr data-index="1">
+                                        <td>JavaScript</td>
+                                        <td>
+                                            <div class="progress">
+                                                <div class="progress-bar bg-success" role="progressbar" style="width: 80%;" aria-valuenow="80"
+                                                    aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                        </td>
+                                        <td class="action-buttons">
+                                            <button class="btn btn-outline-success btn-sm edit-button" onclick="openSkillPopup('edit', 1)">Edit</button>
+                                            <button class="btn btn-outline-danger btn-sm" onclick="deleteSkill(1)">Delete</button>
+                                        </td>
+                                    </tr>
+                                    <tr data-index="2">
+                                        <td>Graphic Design</td>
+                                        <td>
+                                            <div class="progress">
+                                                <div class="progress-bar bg-info" role="progressbar" style="width: 65%;" aria-valuenow="65"
+                                                    aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                        </td>
+                                        <td class="action-buttons">
+                                            <button class="btn btn-outline-success btn-sm edit-button" onclick="openSkillPopup('edit', 2)">Edit</button>
+                                            <button class="btn btn-outline-danger btn-sm" onclick="deleteSkill(2)">Delete</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                    </div>
+                </div>
+
+                <div class="popup-container" id="skillPopup">
+                    <div class="popup">
+                        <h2>Edit Skill</h2>
+                        <form>
+                            <div class="mb-3 row">
+                                <label for="skillName" class="col-sm-2 col-form-label">Skill Name</label>
+                                <div class="col-sm-10" id="input">
+                                    <input type="text" class="form-control" id="skillName">
+                                </div>
+                            </div>
+
+                            <div class="mb-3 row">
+                                <label for="skillLevel" class="col-sm-2 col-form-label">Skill Level</label>
+                                <div class="col-sm-10">
+                                    <input type="number" class="form-control" id="skillLevel" min="0" max="100">
+                                </div>
+                            </div>
+                            <button type="submit" id="save-skill-button">Save</button>
+                            <button type="button" id="cancel-skill-button" onclick="closeSkillPopup()">Cancel</button>
+                        </form>
+                    </div>
+                </div>
+                <script>
+                    // Sample data for skills (you can replace this with your own data)
+                    let skillsData = [
+                        { name: 'HTML/CSS', level: 60 },
+                        { name: 'JavaScript', level: 80 },
+                        { name: 'Graphic Design', level: 65 }
+                    ];
+                
+                    // Function to populate the skills table with data
+                    function populateSkillsTable() {
+                        const skillsTable = document.querySelector('.skills-table tbody');
+                        skillsTable.innerHTML = '';
+                
+                        skillsData.forEach((skill, index) => {
+                            const row = document.createElement('tr');
+                            row.setAttribute('data-index', index);
+                            row.innerHTML = `
+                                <td>${skill.name}</td>
+                                <td>
+                                    <div class="progress">
+                                        <div class="progress-bar bg-success" role="progressbar" style="width: ${skill.level}%" aria-valuenow="${skill.level}" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </td>
+                                <td class="action-buttons">
+                                    <button class="btn btn-outline-success btn-sm edit-button" onclick="openSkillPopup('edit', ${index})">Edit</button>
+                                    <button class="btn btn-outline-danger btn-sm" onclick="deleteSkill(${index})">Delete</button>
+                                </td>
+                            `;
+                            skillsTable.appendChild(row);
+                        });
+                    }
+                
+                    // Function to open the skill popup for edit or add
+                    function openSkillPopup(action, index) {
+                        const skillPopup = document.getElementById('skillPopup');
+                        const skillNameInput = document.getElementById('skillName');
+                        const skillLevelInput = document.getElementById('skillLevel');
+                        const saveButton = document.getElementById('save-skill-button');
+                        const popupTitle = document.querySelector('#skillPopup h2');
+                
+                        if (action === 'add') {
+                            // Clear the input fields for adding a new skill
+                            skillNameInput.value = '';
+                            skillLevelInput.value = '';
+                            saveButton.onclick = () => saveSkill('add');
+                            popupTitle.innerText = 'Add New Skill';
+                        } else if (action === 'edit') {
+                            // Populate the input fields with data for editing
+                            skillNameInput.value = skillsData[index].name;
+                            skillLevelInput.value = skillsData[index].level;
+                            saveButton.onclick = () => saveSkill('edit', index);
+                            popupTitle.innerText = 'Edit Skill';
+                        }
+                
+                        skillPopup.style.display = 'block';
+                    }
+                
+                    // Function to close the skill popup
+                    function closeSkillPopup() {
+                        const skillPopup = document.getElementById('skillPopup');
+                        skillPopup.style.display = 'none';
+                    }
+                
+                    // Function to save a new skill or update an existing skill
+                    function saveSkill(action, index) {
+                        const skillNameInput = document.getElementById('skillName');
+                        const skillLevelInput = document.getElementById('skillLevel');
+                
+                        const name = skillNameInput.value;
+                        const level = parseInt(skillLevelInput.value);
+                
+                        if (name && !isNaN(level)) {
+                            const skill = { name, level };
+                
+                            if (action === 'edit') {
+                                // Update an existing skill
+                                skillsData[index] = skill;
+                            } else if (action === 'add') {
+                                // Add a new skill
+                                skillsData.push(skill);
+                            }
+                
+                            // Repopulate the skills table
+                            populateSkillsTable();
+                            closeSkillPopup();
+                        }
+                    }
+                
+                    // Function to delete a skill
+                    function deleteSkill(index) {
+                        if (confirm('Are you sure you want to delete this skill?')) {
+                            skillsData.splice(index, 1);
+                            // Repopulate the skills table
+                            populateSkillsTable();
+                        }
+                    }
+                
+                    // Initialize the skills table
+                    populateSkillsTable();
+                </script>
+                
+            </section>
+
+        </main>
+
+
 
     </div>
 
+    </div>
 </body>
-
 
 </html>
