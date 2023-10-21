@@ -4,50 +4,72 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Calculator</title>
+	<title>Document</title>
 	<link rel="stylesheet" href="calc.css">
 </head>
 
 <body>
-	<table>
-		<tbody>
-			<tr>
-				<td colspan="5"><input id="display" class="display" type="text"></td>
-			</tr>
-			<tr>
-				<td><button class="btn" onclick="enterNumber(C)">C</button></td>
-				<td><button class="btn" onclick="enterNumber(%)">%</button></td>
-				<td><button class="btn" onclick="enterNumber(x)">x</button></td>
-				<td><button id="ce" class="btn" onclick="enterNumber(CE)">CE</button></td>
-			</tr>
-			<tr>
-				<td><button class="btn" onclick="enterNumber(7)">7</button></td>
-				<td><button class="btn" onclick="enterNumber(8)">8</button></td>
-				<td><button class="btn" onclick="enterNumber(9)">9</button></td>
-				<td><button class="btn" onclick="enterNumber(/)">/</button></td>
-			</tr>
-			<tr>
-				<td><button class="btn" onclick="enterNumber(4)">4</button></td>
-				<td><button class="btn" onclick="enterNumber(5)">5</button></td>
-				<td><button class="btn" onclick="enterNumber(6)">6<button></td>
-				<td><button class="btn" onclick="enterNumber(*)">*</button></td>
-			</tr>
-			<tr>
-				<td><button class="btn" onclick="enterNumber(1)">1</button></td>
-				<td><button class="btn" onclick="enterNumber(2)">2</button></td>
-				<td><button class="btn" onclick="enterNumber(3)">3</button></td>
-				<td><button class="btn" onclick="enterNumber(-)">-</button></td>
-			</tr>
-			<tr>
-				<td><button class="btn" onclick="enterNumber(.)">.</button></td>
-				<td><button class="btn" onclick="enterNumber(0)">0</button></td>
-				<td><button class="btn" onclick="enterNumber(+)">+</button></td>
-				<td><button class="btn" onclick="enterNumber(=)">=</button></td>
-			</tr>
-		</tbody>
+	<table class="calculator">
+		<tr>
+			<td colspan="4"> <input class="display-box" type="text" id="result" disabled /> </td>
+
+		</tr>
+		<tr>
+			<td> <input type="button" value="C"  onclick="clearScreen()"/> </td>
+			<td> <input type="button" value="%" onclick="display('%')" /> </td>
+			<td> <input type="button" value="x" onclick="display('x')" /> </td>
+			<td> <input type="button" value="CE" onclick = "clearAll()" id="ce"
+		    /> </td>
+		</tr>
+		<tr>
+			<!-- display() function displays the value of clicked button -->
+			<td> <input type="button" value="1" onclick="display('1')" /> </td>
+			<td> <input type="button" value="2" onclick="display('2')" /> </td>
+			<td> <input type="button" value="3" onclick="display('3')" /> </td>
+			<td> <input type="button" value="/" onclick="display('/')" /> </td>
+		</tr>
+		<tr>
+			<td> <input type="button" value="4" onclick="display('4')" /> </td>
+			<td> <input type="button" value="5" onclick="display('5')" /> </td>
+			<td> <input type="button" value="6" onclick="display('6')" /> </td>
+			<td> <input type="button" value="*" onclick="display('*')" /> </td>
+		</tr>
+		<tr>
+			<td> <input type="button" value="7" onclick="display('7')" /> </td>
+			<td> <input type="button" value="8" onclick="display('8')" /> </td>
+			<td> <input type="button" value="9" onclick="display('9')" /> </td>
+			<td> <input type="button" value="+" onclick="display('+')" /> </td>
+		</tr>
+		<tr>
+			<td> <input type="button" value="." onclick="display('.')" /> </td>
+			<td> <input type="button" value="0" onclick="display('0')" /> </td>
+			<td> <input type="button" value="-" onclick="display('-')" /> </td>
+			<td> <input type="button" value="=" onclick="calculate()" id="btn" /> </td>
+		</tr>
+
 	</table>
 
+	<script>
+		// This function clears all the values
+		function clearScreen() {
+			document.getElementById("result").value = "";
+		}
+		function clearAll(){
+			document.getElementById("result").value = "";
+		}
 
+		// This function displays the values
+		function display(value) {
+			document.getElementById("result").value += value;
+		}
+
+		// This function evaluates the expression and returns the result
+		function calculate() {
+			var p = document.getElementById("result").value;
+			var q = eval(p);
+			document.getElementById("result").value = q;
+		}
+	</script>
 </body>
 
 </html>

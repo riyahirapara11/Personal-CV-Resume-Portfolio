@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+    <!-- Add Bootstrap CSS link -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Add Font Awesome CSS link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!-- Custom CSS for styling -->
+    <link rel="stylesheet" href="login.css">
+   
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 login-container">
+                <h2 class="text-center">Admin Login</h2>
+                <form>
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" class="form-control" id="username" placeholder="Enter username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" id="password" placeholder="Enter password" required>
+                    </div>
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" id="rememberMe">
+                        <label class="form-check-label" for="rememberMe">Remember Me</label>
+                    </div>
+                    <button type="submit" class="btn btn-info btn-block">Login</button>
+                </form>
+                <div class="mt-3" id="forgot">
+                    <a href="#">Forgot Password?</a>
+                </div>
+                <hr>
+                <p class="text-center">Don't have an account? <a href="#">Sign up</a></p>
+                <div class="text-center">Or</div>
+                <br>
+                <div class="text-center" id="social">
+                    <button class="btn btn-outline-danger mx-2">
+                        <i class="fab fa-google"></i>
+                    </button>
+                    <button class="btn btn-outline-success mx-2">
+                        <i class="fab fa-facebook"></i>
+                    </button>
+                    <button class="btn btn-outline-primary mx-2">
+                        <i class="fab fa-linkedin"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+    <script>
+        // JavaScript for handling form submission and social media login
+        document.addEventListener('DOMContentLoaded', function () {
+            // Handle form submission
+            const loginForm = document.querySelector('form');
+            loginForm.addEventListener('submit', function (e) {
+                e.preventDefault(); // Prevent the default form submission behavior
+    
+                const username = document.getElementById('username').value;
+                const password = document.getElementById('password').value;
+    
+                // Check if the username or password field is empty
+                if (username.trim() === '' || password.trim() === '') {
+                    displayErrorMessage('Please fill in all fields.');
+                    return;
+                }
+    
+                // Check if the password is valid
+                if (!isPasswordValid(password)) {
+                    displayErrorMessage('Password must contain at least 8 characters, including at least one letter and one number.');
+                    return;
+                }
+    
+                // If all validations pass, you can submit the form
+                alert('Form submitted successfully!');
+            });
+    
+            // Password validation function
+            function isPasswordValid(password) {
+                const passwordPattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+                return passwordPattern.test(password);
+            }
+    
+            // Display error message
+            function displayErrorMessage(message) {
+                const errorDiv = document.getElementById('error-message');
+                errorDiv.innerHTML = message;
+                errorDiv.style.display = 'block';
+            }
+    
+            // Handle "Forgot Password?" link
+            const forgotPasswordLink = document.getElementById('forgotPassword');
+            forgotPasswordLink.addEventListener('click', function (e) {
+                e.preventDefault();
+                // Add logic to handle forgot password functionality (e.g., show a modal or redirect to a password reset page)
+            });
+    
+            // Handle social media login buttons
+            const googleLoginButton = document.getElementById('googleLogin');
+            googleLoginButton.addEventListener('click', function () {
+                // Add logic to handle Google login (e.g., redirect to Google login page or open a popup)
+            });
+    
+            const facebookLoginButton = document.getElementById('facebookLogin');
+            facebookLoginButton.addEventListener('click', function () {
+                // Add logic to handle Facebook login (e.g., redirect to Facebook login page or open a popup)
+            });
+    
+            const linkedinLoginButton = document.getElementById('linkedinLogin');
+            linkedinLoginButton.addEventListener('click', function () {
+                // Add logic to handle LinkedIn login (e.g., redirect to LinkedIn login page or open a popup)
+            });
+        });
+    </script>
+    
+
+   
+</body>
+</html>
+
